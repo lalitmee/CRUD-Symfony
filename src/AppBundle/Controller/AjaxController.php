@@ -10,7 +10,8 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class AjaxController extends Controller
 {
@@ -72,5 +73,24 @@ class AjaxController extends Controller
             }
         }
         return new Response($hint);
+    }
+
+    /**
+     * @Route("/upload", name="upload")
+     */
+    public function imgUpload(){
+
+        $sourcePath = $_FILES['uploadimg']['tmp_name'];       // Storing source path of the file in a variable
+        $targetPath = "upload/".$_FILES['uploadimg']['name']; // Target path where file is to be stored
+        move_uploaded_file($sourcePath,$targetPath);    // Moving Uploaded file
+        return new Response($targetPath);
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/view", name="view")
+     */
+    public function imgView(){
+        return $this->render('design/ajax.html.twig');
     }
 }
