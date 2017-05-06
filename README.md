@@ -1,4 +1,14 @@
-app
+CRUD Application using Symfony
 ===
+[Homepage](https://github.com/lalitmee/CRUD-Symfony/blob/master/Images/homepage.png?raw=true)
 
-A Symfony project created on May 4, 2017, 3:00 pm.
+Functions:
+
+CREATE
+
+UPDATE
+
+VIEW
+
+DELETE
+
