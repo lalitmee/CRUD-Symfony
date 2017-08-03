@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        .new{
+           text-align: center;
+            margin-top: auto;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <hr>
+    <div class="container">
+        <center>
+            <a
+                    href="{{ path('newItem') }}"
+                    class="btn btn-info new"
+                    role="button">Add More
+            </a>
+        </center>
+        <hr>
+        <div class="row">
+            {% for produc in product %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>ID  : {{ produc.id }}</h4>
+                        <h2>Name : {{ produc.name }}</h2>
+                        <p>Description : {{ produc.description }}</p>
+                        <p>
+                            <a
+                                    href="{{ path('deleteAction', {'productId' : produc.id}) }}"
+                                    class="btn btn-danger"
+                                    role="button">Delete
+                            </a>
+                            <a
+                                    href="{{ path('update', {'productId' : produc.id}) }}"
+                                    class="btn btn-primary"
+                                    role="button">Update
+                            </a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+{% endblock %}

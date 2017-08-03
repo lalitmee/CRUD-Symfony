@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        center{
+            position: relative;
+            background: rgba(240, 248, 255, 0.5);
+            width: 600px;
+            margin-top: 40%;
+        }
+        </style>
+{% endblock %}
+
+{% block body %}
+<div class="center">
+    <div class="col-md-4 col-md-offset-4">
+
+    <h1>Add New Product</h1>
+        <form name='product_form'  method='post'>
+            {{ form_start(form) }}
+
+
+            {{ form_widget(form.Name, {'attr': {'class': 'form-control', 'placeholder':'Product Name'}}) }}
+
+            {{ form_widget(form.Price, {'attr': {'class': 'form-control', 'placeholder':'Price'}}) }}
+
+            {{ form_widget(form.Description, {'attr': {'class': 'form-control', 'placeholder':'Description'}}) }}
+
+
+            <a href="{{ path('newItem') }}">
+                <button class="btn btn-lg btn-primary btn-block" value="{{ form_end(form) }}</button>
+            </a>
+
+
+        </form>
+    </div>
+    </div>
+{% endblock %}
